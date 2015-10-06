@@ -3,15 +3,14 @@ class Customer < ActiveRecord::Base
   include Elasticsearch::Model::Callbacks
 
 
-  set_callback :create, :after do |document|
-    document.__elasticsearch__.index_name = 'customers'
-    document.__elasticsearch__.index_document
+  after_commit on: [:create] do
+    __elasticsearch__.index_document
   end
 
   def as_indexed_json(options={})
     {
         name: name,
-        location: [ latitude, longitude ]
+        location: "#{latitude}, #{longitude}"
     }
   end
 

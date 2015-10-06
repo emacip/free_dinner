@@ -2,10 +2,10 @@ SERVER_URL="http://localhost:9200"
 curl -XDELETE $SERVER_URL/customers/
 
 
-echo "creating new index branches-development \n"
+echo "creating new index customers \n"
 curl -XPUT $SERVER_URL/customers/ -d '{
   "mappings": {
-    "client": {
+    "customer": {
       "dynamic": false,
       "properties": {
         "name": {
