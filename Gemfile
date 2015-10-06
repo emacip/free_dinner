@@ -37,5 +37,8 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'byebug'
 
-gem 'yajl-ruby', require: 'yajl'
+# ElasticSearch
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
